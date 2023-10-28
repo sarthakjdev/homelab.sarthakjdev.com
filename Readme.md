@@ -15,6 +15,8 @@
 
 This repository documents the steps I took to convert an old Windows laptop into a Linux home server, and the decisions behind every step. This endeavor showcases my skills in Linux server administration and is designed to highlight my capabilities for roles in SRE and DevOps.
 
+:warning: **Note**: The following outlines our execution plan. Documentation will be updated concurrently as we complete each step.
+
 ## Table of Contents
 - [Introduction](#introduction)
 - [Hardware Specifications](#hardware-specifications)
