@@ -34,7 +34,7 @@ This repository documents the steps I took to convert an old Windows laptop into
 Brief about why you started this project.
 
 ## Hardware Specifications
-- **Laptop Model**: XYZ
+- **Laptop Model**: Lenovo Ideapad slim i5
 - **Processor**: Intel i5 Iris
 - **RAM**: 8GB DDR4
 - **Storage**: 1TB HDD, 256GB SSD
