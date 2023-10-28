@@ -1,6 +1,10 @@
 
 ---
 
+# Status:
+
+Work in progress
+
 # Home Server Setup: An SRE/DevOps Journey
 
 ![Server Setup Banner Image](link-to-an-image-if-you-have-one)
