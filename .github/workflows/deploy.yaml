@@ -1,0 +1,20 @@
+# ! TODO:
+# name: Deploy Documentaton
+# on:
+#   workflow_dispatch: {}
+#   push:
+#     branches: [docs]
+
+# concurrency:
+#   cancel-in-progress: true
+#   group: ${{ github.workflow }}-${{ github.ref }}-website-deployment
+
+# jobs:
+#   deploy:
+#     timeout-minutes: 5
+#     steps:
+#         - name: Checkout
+#           uses: actions/checkout@v2
+
+#         - name: Setup Node
+
