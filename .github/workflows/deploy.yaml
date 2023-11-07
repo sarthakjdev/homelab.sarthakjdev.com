@@ -1,0 +1,51 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - "master"
+
+jobs:
+  deploy:
+    environment: "production"
+    timeout-minutes: 20
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install Ansible
+        id: install-ansible
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ansible
+
+      - name: Configuring VM
+        env:
+          ANSIBLE_HOST_KEY_CHECKING: False
+        run: |
+          mkdir ~/.ssh;
+          touch ~/.ssh/id_rsa;
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" >> ~/.ssh/id_rsa;
+          echo "" >> ~/.ssh/id_rsa;
+          chmod 600 ~/.ssh/id_rsa;
+          ansible-playbook ./deploy/ansible/configure-vm.ansible.yaml -i "${{ secrets.SERVER_IP_ADDRESS }}," --private-key=~/.ssh/id_rsa --user=creatorconnect --extra-vars '{"DOCKER_PASSWORD":"${{ secrets.DOCKER_PASSWORD }}"}'
+          echo $?
+          echo "EXIT CODE ABOVE"
+
+      - name: Deployment Failure Alert
+        if: ${{ failure() }}
+        uses: tsickert/discord-webhook@v5.3.0
+        with:
+          webhook-url: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          embed-title: "🚨🚨🚨 MASTER BRANCH BACKEND DEPLOYMENT FAILED ON HOME SERVER 🚨🚨🚨"
+          embed-description: " .<@517983211708612609> deploy job on master branch failed, check [HERE](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})"
+
+      - name: Deployment Failure Alert
+        if: ${{ success() }}
+        uses: tsickert/discord-webhook@v5.3.0
+        with:
+          webhook-url: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          embed-title: "🟢 MASTER BRANCH BACKEND DEPLOYMENT SUCCESS"
+          embed-color: "#a855f7"
+          embed-description: "Backend Deployed on master!!"

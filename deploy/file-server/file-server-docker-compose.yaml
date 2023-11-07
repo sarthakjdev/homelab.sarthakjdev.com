@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+  nextcloud:
+    image: nextcloud
+    ports:
+      - 5252:5252
+    networks:
+      shared-internal-network:
+        - name: home-server-internal-network
+        - external: true
+
+  postgres:
+    image: postgres:latest
+    ports:
+      - 5432:5432
+    networks:
+      shared-internal-network:
+        - name: home-server-internal-network
+        - external: true
