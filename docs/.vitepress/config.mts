@@ -26,35 +26,58 @@ export default defineConfig({
         link: '/shell-setup'
       },
       {
-        text: 'Networking Setup',
+        text: 'SSH Setup',
+        link: '/networking/ssh'
+      },
+      {
+        text: 'Services Setup',
         collapsed: false,
         items: [
           {
-            text: 'SSH',
-            link: '/networking/ssh'
+            text: 'Objectives',
+            link: '/services/objectives'
+          },
+          {
+            text: 'Tooling',
+            link: '/services/tooling'
+          },
+          {
+            text: 'Infrastructure',
+            link: '/services/infrastructure'
           },
           {
             text: 'Web Server',
-            link: '/networking/web-server'
+            link: '/services/web-server'
+          },
+          {
+            text: "Storage Cloud",
+            link: "/services/cloud-file-storage"
+          },
+          {
+            text: "Monitoring Setup",
+            link: "/services/monitoring"
+          },
+          {
+            text: "Logging Setup",
+            link: "/services/logging"
           }
         ]
-      },
-      {
-        text: 'File Server',
-        collapsed: false,
-        items: []
       },
       {
         text: 'Automations',
         collapsed: false,
         items: [
           {
-            text: 'Crons',
-            link: '/automations/crons'
+            text: 'CI / CD',
+            link: '/automations/ci-cd'
           },
           {
-            text: 'Host Monitoring',
-            link: '/automations/ping-server'
+            text: 'Configuration Management',
+            link: '/automations/configuration'
+          },
+          {
+            text: 'Services Deployment',
+            link: '/automations/services-deployment'
           }
         ]
       },
@@ -74,12 +97,12 @@ export default defineConfig({
     logo: '/favicons/ms-icon-310x310.png',
 
     footer: {
-      message: 'Released under the Apache 2.0 License.',
-      copyright: `Copyright © sarthak 2023-${new Date().getFullYear()} | All rights reserved.`
+      message: 'Released under MIT License.',
+      copyright: `Copyright ©sarthakjdev 2023-${new Date().getFullYear()} | All rights reserved.`
     },
 
     editLink: {
-      pattern: 'https://github.com/sarthakjdev/home-server-setup-docs/edit/main/:path',
+      pattern: 'https://github.com/sarthakjdev/home-server-setup/edit/main/:path',
       text: 'Edit this page on GitHub'
     },
 

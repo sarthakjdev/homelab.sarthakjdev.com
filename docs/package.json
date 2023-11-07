@@ -4,12 +4,13 @@
     "contact.sarthakjain@gmail.com"
   ],
   "scripts": {
-    "docs:dev": "vitepress dev",
-    "docs:build": "vitepress build",
-    "docs:preview": "vitepress preview"
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview"
   },
   "devDependencies": {
     "vitepress": "1.0.0-rc.24",
     "vue": "^3.3.7"
-  }
+  },
+	"packageManager": "pnpm@8.7.0"
 }
