@@ -1,4 +1,4 @@
-name: Build
+name: Deploy Documentation
 
 on:
   push:
@@ -7,10 +7,13 @@ on:
     paths: ["docs/**"]
 
 jobs:
-  deploy:
+  docs:
     environment: Production
     timeout-minutes: 15
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./docs
     env:
       VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
       VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
@@ -30,13 +33,13 @@ jobs:
         run: pnpm -g add vercel@canary
 
       - name: Install Dependencies
-        run: cd docs && pnpm install --frozen-lockfile
+        run: pnpm install --frozen-lockfile
 
       - name: Build
-        run: cd docs && pnpm run build
+        run: pnpm run build
 
       - name: Trigger Production Deployment
-        run: cd docs && vercel deploy -y --prod --token=${{ secrets.VERCEL_TOKEN }} > deployment-url.txt
+        run: vercel deploy -y --prod --token=${{ secrets.VERCEL_TOKEN }} > deployment-url.txt
 
       - name: Deployment Failure Alert
         if: ${{ failure() }}
