@@ -2,19 +2,15 @@ version: "3.8"
 
 services:
   elastiksearch:
-    networks:
-      shared_internal_network:
-        - name: home-server-internal-network
-        - external: true
+    networks: home_server_internal_network
 
   logstash:
-    networks:
-      shared_internal_network:
-        - name: home-server-internal-network
-        - external: true
+    networks: home_server_internal_network
 
   kibana:
-    networks:
-      shared_internal_network:
-        - name: home-server-internal-network
-        - external: true
+    networks: home_server_internal_network
+
+networks:
+  home_server_internal_network:
+    name: home_server_internal_network
+    external: true

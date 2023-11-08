@@ -1,22 +1,18 @@
-version: "3"
+version: "3.8"
 
 services:
   nginx:
     image: nginx:latest
     ports:
+      - 80:80
       - 443:443
-    volumes:
-      - ./nginx/conf.d:/etc/nginx/conf.d
-      - ./ssl:/etc/nginx/ssl:ro
-      - ./.htpsswd:/etc/nginx/.htpsswd
+    # volumes:
+    #   - ./nginx/conf.d:/etc/nginx/conf.d
+    #   - ./ssl:/etc/nginx/ssl:ro
+    #   - ./.htpsswd:/etc/nginx/.htpsswd
     networks:
-      shared_internal_network:
-        - name: home-server-internal-network
-        - external: true
-
-volumes:
-  prometheus-data:
+      - home_server_internal_network
 
 networks:
-  internal-network:
-    driver: bridge
+  home_server_internal_network:
+    external: true

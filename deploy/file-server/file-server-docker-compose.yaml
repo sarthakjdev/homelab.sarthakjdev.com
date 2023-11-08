@@ -1,64 +1,61 @@
-version: "3.2"
+version: "3.8"
 
 services:
   nextcloud_postgress_db:
     image: postgres
-    restart: always
     volumes:
       - nextcloud_postgress_db_volume:/var/lib/postgresql/data
     environment:
-      - POSTGRES_DB_FILE=/run/secrets/file_server_postgres_db
-      - POSTGRES_USER_FILE=/run/secrets/file_server_postgres_user
-      - POSTGRES_PASSWORD_FILE=/run/secrets/file_server_postgres_password
+      - POSTGRES_DB_FILE=/run/secrets/NEXTCLOUD_PG_DB
+      - POSTGRES_USER_FILE=/run/secrets/NEXTCLOUD_PG_USER
+      - POSTGRES_PASSWORD_FILE=/run/secrets/NEXTCLOUD_PG_PASSWORD
     secrets:
-      - file_server_postgres_db
-      - file_server_postgres_password
-      - file_server_postgres_user
+      - NEXTCLOUD_PG_DB
+      - NEXTCLOUD_PG_PASSWORD
+      - NEXTCLOUD_PG_USER
     networks:
-      shared_internal_network:
-        - name: home-server-internal-network
-        - external: true
+      - home_server_internal_network
 
   nextcloud:
-    image: nextcloud
-    restart: always
+    image: nextcloud:fpm
     ports:
-      - 8080:80
+      - 9000:9000
     volumes:
-      - nextcloud_volume:/var/www/html
-      - /mnt/hdd0:/storage
+      - nextcloud:/var/www/html
     deploy:
       replicas: 2
     environment:
-      - POSTGRES_HOST=db
-      - POSTGRES_DB_FILE=/run/secrets/file_server_postgres_db
-      - POSTGRES_USER_FILE=/run/secrets/file_server_postgres_user
-      - POSTGRES_PASSWORD_FILE=/run/secrets/file_server_postgres_password
-      - NEXTCLOUD_ADMIN_PASSWORD_FILE=/run/secrets/nextcloud_admin_password
-      - NEXTCLOUD_ADMIN_USER_FILE=/run/secrets/nextcloud_admin_user
+      - POSTGRES_HOST=home_file_server_stack_nextcloud_postgress_db
+      - POSTGRES_DB_FILE=/run/secrets/NEXTCLOUD_PG_DB
+      - POSTGRES_USER_FILE=/run/secrets/NEXTCLOUD_PG_USER
+      - POSTGRES_PASSWORD_FILE=/run/secrets/NEXTCLOUD_PG_PASSWORD
+      - NEXTCLOUD_ADMIN_PASSWORD_FILE=/run/secrets/NEXTCLOUD_ADMIN_PASSWORD
+      - NEXTCLOUD_ADMIN_USER_FILE=/run/secrets/NEXTCLOUD_ADMIN_USER
     secrets:
-      - nextcloud_admin_password
-      - nextcloud_admin_user
-      - file_server_postgres_db
-      - file_server_postgres_password
-      - file_server_postgres_user
+      - NEXTCLOUD_ADMIN_PASSWORD
+      - NEXTCLOUD_ADMIN_USER
+      - NEXTCLOUD_PG_DB
+      - NEXTCLOUD_PG_PASSWORD
+      - NEXTCLOUD_PG_USER
     networks:
-      shared_internal_network:
-        - name: home-server-internal-network
-        - external: true
+      - home_server_internal_network
 
 volumes:
   nextcloud_postgress_db_volume:
-  nextcloud_volume:
+  nextcloud:
+
+networks:
+  home_server_internal_network:
+    external: true
 
 secrets:
-  nextcloud_admin_password:
+  NEXTCLOUD_ADMIN_PASSWORD:
     external: true
-  nextcloud_admin_user:
+  NEXTCLOUD_ADMIN_USER:
     external: true
-  file_server_postgres_db:
+  NEXTCLOUD_PG_DB:
     external: true
-  file_server_postgres_password:
+  NEXTCLOUD_PG_PASSWORD:
     external: true
-  file_server_postgres_user:
+  NEXTCLOUD_PG_USER:
     external: true
