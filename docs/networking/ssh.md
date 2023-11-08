@@ -91,3 +91,4 @@ Enabling SSH and configuring the firewall were critical steps in my server setup
 ---
 
 Feel free to adjust this template to better match your specific steps, preferences, or additional configurations.
+
