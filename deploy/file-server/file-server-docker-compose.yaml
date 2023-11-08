@@ -1,29 +1,64 @@
-version: "3.8"
+version: "3.2"
 
 services:
-  nextcloud:
-    image: nextcloud
-    ports:
-      - 5252:5252
+  nextcloud_postgress_db:
+    image: postgres
+    restart: always
     volumes:
-      - nextcloud_data: /var/www/html
-      - /mnt/hdd0:/mnt/data
+      - nextcloud_postgress_db_volume:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB_FILE=/run/secrets/file_server_postgres_db
+      - POSTGRES_USER_FILE=/run/secrets/file_server_postgres_user
+      - POSTGRES_PASSWORD_FILE=/run/secrets/file_server_postgres_password
+    secrets:
+      - file_server_postgres_db
+      - file_server_postgres_password
+      - file_server_postgres_user
     networks:
       shared_internal_network:
         - name: home-server-internal-network
         - external: true
 
-  postgres:
-    image: postgres:latest
+  nextcloud:
+    image: nextcloud
+    restart: always
     ports:
-      - 5432:5432
+      - 8080:80
     volumes:
-      - file_server_db_data: /var/lib/postgresql
+      - nextcloud_volume:/var/www/html
+      - /mnt/hdd0:/storage
+    deploy:
+      replicas: 2
+    environment:
+      - POSTGRES_HOST=db
+      - POSTGRES_DB_FILE=/run/secrets/file_server_postgres_db
+      - POSTGRES_USER_FILE=/run/secrets/file_server_postgres_user
+      - POSTGRES_PASSWORD_FILE=/run/secrets/file_server_postgres_password
+      - NEXTCLOUD_ADMIN_PASSWORD_FILE=/run/secrets/nextcloud_admin_password
+      - NEXTCLOUD_ADMIN_USER_FILE=/run/secrets/nextcloud_admin_user
+    secrets:
+      - nextcloud_admin_password
+      - nextcloud_admin_user
+      - file_server_postgres_db
+      - file_server_postgres_password
+      - file_server_postgres_user
     networks:
       shared_internal_network:
         - name: home-server-internal-network
         - external: true
 
 volumes:
-  nextcloud_data:
-  file_server_db_data:
+  nextcloud_postgress_db_volume:
+  nextcloud_volume:
+
+secrets:
+  nextcloud_admin_password:
+    external: true
+  nextcloud_admin_user:
+    external: true
+  file_server_postgres_db:
+    external: true
+  file_server_postgres_password:
+    external: true
+  file_server_postgres_user:
+    external: true

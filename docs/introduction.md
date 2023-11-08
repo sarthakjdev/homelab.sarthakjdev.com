@@ -1,4 +1,3 @@
-
 ---
 
 # Status:
@@ -8,17 +7,18 @@
 # Home Server Setup: An SRE/DevOps Journey
 
 
-
 <p align="center">
   <img src="https://media.discordapp.net/attachments/1167763653970374696/1167763742587637770/DALLE_2023-10-28_15.24.24_-_Illustration_of_a_stylized_Linux_penguin_Tux_holding_a_wrench_and_wearing_a_hard_hat_standing_next_to_a_laptop_that_has_server_racks_and_network_ca.png?ex=654f4fbc&is=653cdabc&hm=04f19bfa9f571ee16f13845e427bc294bc3474519c9f8b0752abb57d2e7971d2&=&width=2150&height=1228" alt="Serve-Setup-Banner-Image">
 </p>
 
-This repository documents the steps I took to convert an old Windows laptop into a Linux home server, and the decisions behind every step. This endeavor showcases my skills in Linux server administration and is designed to highlight my capabilities for roles in SRE and DevOps.
+The transition from managing servers in a professional capacity to embarking on the journey of establishing a personal home server marks a significant milestone in any software engineer's personal development and learning curve. This documentation encapsulates the insights, methodologies, and experiences garnered throughout the process of setting up a home server, tailored for those with a similar professional background looking to explore this venture.
+
+This repository documents the steps I took to convert an old Windows laptop into a Linux home server, and the decisions behind every step.**This endeavor showcases my skills in Linux server administration and is designed to highlight my capabilities for roles in SRE and DevOps.
 
 :warning: **Note**: The following outlines our execution plan. Documentation will be updated concurrently as we complete each step.
 
 ## Table of Contents
-- [Introduction](#introduction)
+- [Introduction](#https://)
 - [Hardware Specifications](#hardware-specifications)
 - [OS Installation](#os-installation)
 - [SSH Configuration](#ssh-configuration)

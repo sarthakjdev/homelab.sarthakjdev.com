@@ -1,16 +1,8 @@
-
 # Miscellaneous Configurations for Ubuntu Server
 
 A collection of assorted configurations and settings to enhance the Ubuntu Server experience. These tricks cover a variety of use-cases to simplify and optimize the way you interact with the server.
 
 :warning: **Note**: Always backup your configuration before making changes.
-
-## Table of Contents
-
-- [1. Preventing Suspension on Lid Close](#1-preventing-suspension-on-lid-close)
-- [2. (More Configurations Here)](#2-more-configurations-here)
-  
----
 
 ## 1. Preventing Suspension on Lid Close
 
