@@ -5,8 +5,11 @@ services:
     image: nextcloud
     ports:
       - 5252:5252
+    volumes:
+      - nextcloud_data: /var/www/html
+      - /mnt/hdd0:/mnt/data
     networks:
-      shared-internal-network:
+      shared_internal_network:
         - name: home-server-internal-network
         - external: true
 
@@ -14,7 +17,13 @@ services:
     image: postgres:latest
     ports:
       - 5432:5432
+    volumes:
+      - file_server_db_data: /var/lib/postgresql
     networks:
-      shared-internal-network:
+      shared_internal_network:
         - name: home-server-internal-network
         - external: true
+
+volumes:
+  nextcloud_data:
+  file_server_db_data:

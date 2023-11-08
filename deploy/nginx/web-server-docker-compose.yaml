@@ -10,7 +10,7 @@ services:
       - ./ssl:/etc/nginx/ssl:ro
       - ./.htpsswd:/etc/nginx/.htpsswd
     networks:
-      shared-internal-network:
+      shared_internal_network:
         - name: home-server-internal-network
         - external: true
 

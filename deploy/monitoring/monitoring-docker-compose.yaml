@@ -9,7 +9,7 @@ services:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml
       - prometheus-data:/prometheus
     networks:
-      shared-internal-network:
+      shared_internal_network:
         - name: home-server-internal-network
         - external: true
 

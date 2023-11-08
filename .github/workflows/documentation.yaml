@@ -11,9 +11,6 @@ jobs:
     environment: Production
     timeout-minutes: 15
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./docs
     env:
       VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
       VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
@@ -26,20 +23,21 @@ jobs:
 
       - name: Install pnpm
         uses: pnpm/action-setup@v2.2.4
-        with:
-          run_install: false
 
       - name: Install Vercel CLI
         run: pnpm -g add vercel@canary
 
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
+        working-directory: docs
 
       - name: Build
         run: pnpm run build
+        working-directory: docs
 
       - name: Trigger Production Deployment
         run: vercel deploy -y --prod --token=${{ secrets.VERCEL_TOKEN }} > deployment-url.txt
+        working-directory: docs
 
       - name: Deployment Failure Alert
         if: ${{ failure() }}
