@@ -40,6 +40,20 @@ services:
     networks:
       - home_server_internal_network
 
+  nginx:
+    image: nginx:latest
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./nginx/conf.d/nextcloud.conf:/etc/nginx/conf.d/nextcloud.conf.d
+    #   - ./ssl:/etc/nginx/ssl:ro
+    #   - ./.htpsswd:/etc/nginx/.htpsswd
+    volume_from:
+      - nextcloud
+    networks:
+      - home_server_internal_network
+
 volumes:
   nextcloud_postgress_db_volume:
   nextcloud:
