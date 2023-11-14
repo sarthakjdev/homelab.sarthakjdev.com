@@ -1,0 +1,29 @@
+version: "3.8"
+services:
+  jellyfin:
+    image: lscr.io/linuxserver/jellyfin:latest
+    networks:
+      - home_server_internal_network
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - JELLYFIN_PublishedServerUrl=192.168.1.36
+    volumes:
+      - /home/sarthakjdev/servers/media-server/config:/config
+      - /mnt/hdd0/media:/media
+    ports:
+      - 8096:8096
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - 81:81
+    volumes:
+      - ./conf.d/:/etc/nginx/conf.d
+    networks:
+      - home_server_internal_network
+
+networks:
+  home_server_internal_network:
+    external: true

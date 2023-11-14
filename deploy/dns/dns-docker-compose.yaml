@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  dnsmasq:
+    image: andyshinn/dnsmasq:2.85
+    volumes:
+      - ./dnsmasq.conf:/etc/dnsmasq.conf
+    networks:
+      - dnsnet
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+    deploy:
+      replicas: 1
+      placement:
+        constraints: [ node.role == manager ]
+
+networks:
+  dnsnet:
+    external: true

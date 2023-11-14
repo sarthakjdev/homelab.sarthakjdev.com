@@ -185,24 +185,3 @@
         name: home_file_server_stack
         compose:
           - ~/home-server-setup/deploy/file-server/file-server-docker-compose.yaml
-
-    - name: Deploy monitoring stack
-      docker_stack:
-        state: present
-        name: home_monitoring_stack
-        compose:
-          - ~/home-server-setup/deploy/monitoring/monitoring-docker-compose.yaml
-
-    - name: Deploy logging stack
-      docker_stack:
-        state: present
-        name: home_logging_stack
-        compose:
-          - ~/home-server-setup/deploy/logging/logging-docker-compose.yaml
-
-    - name: Deploy Nginx Reverse Proxy
-      docker_stack:
-        state: present
-        name: home_web_server_stack
-        compose:
-          - ~/home-server-setup/deploy/nginx/web-server-docker-compose.yaml
