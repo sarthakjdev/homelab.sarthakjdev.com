@@ -16,7 +16,7 @@ export default defineConfig({
         collapsed: false,
         items: [
           {
-            text: 'Purpose and Scope',
+            text: 'Purpose',
             link: '/introduction/purpose'
           },
           {
@@ -60,8 +60,12 @@ export default defineConfig({
             link: '/networking/ssh-setup'
           },
           {
-            text: 'Firewall Configuration',
-            link: '/networking/firewall'
+            text: 'Local DNS',
+            link: '/networking/local-dns'
+          },
+          {
+            text: 'Cloudflare Tunnel Setup',
+            link: '/networking/cloudflare-tunnel'
           },
         ],
       },
@@ -77,10 +81,6 @@ export default defineConfig({
           {
             text: 'Tooling',
             link: '/services/tooling'
-          },
-          {
-            text: 'Infrastructure',
-            link: '/services/infrastructure'
           },
           {
             text: 'Web Server',

@@ -1,35 +1,40 @@
-# Purpose and Scope
+# Purpose of Setting Up a Home Server
 
-## Purpose
+## Introduction
 
-The primary purpose of this documentation is to serve as a practical guide for setting up and managing a home server. As a software engineer with a keen interest in self-hosting solutions, I've curated a set of instructions, best practices, and personal insights to assist individuals—ranging from fellow developers to enthusiastic hobbyists—in creating a robust home server environment.
+The journey of setting up a home server began with a blend of curiosity, a desire for personal growth in the field of DevOps, and a need for a centralized, efficient home network solution. This documentation serves as a roadmap outlining the rationale and objectives behind building and managing my home server.
 
-The server setup we will explore is designed to be versatile, allowing for various applications including but not limited to file storage, remote access via VPN, containerized applications, and monitoring services. The ultimate goal is to equip readers with the knowledge to build a server that is secure, efficient, and scalable to their personal or professional needs.
+## Motivation
 
-## Scope
+1. **Self-Hosted Solutions:** Move away from reliance on third-party cloud services, enhancing privacy and control over my data.
+2. **Learning and Skill Development:** Hands-on experience with server management, networking, and security – crucial skills in the ever-evolving tech landscape.
+3. **Centralized Media and File Storage:** Create a personal cloud for securely storing and accessing media and files from anywhere.
+4. **Home Automation Hub:** Integrate and manage IoT devices and home automation services seamlessly.
+5. **Personal Development Environment:** Host development tools and environments, enabling easy access to projects and coding platforms.
 
-This documentation encompasses a wide array of topics related to home server setup:
+## Objectives
 
-- **Hardware and Software Requirements:** A detailed overview of the necessary hardware components and software prerequisites to get your server up and running.
+- **Efficient Resource Utilization:** Leverage existing hardware efficiently, reducing the need for multiple devices and services.
+- **Reliable Network Services:** Set up stable and secure services like file sharing (Nextcloud), media streaming (Jellyfin), and more.
+- **Security and Privacy:** Implement robust security measures including firewalls, SSL/TLS, and secure VPN access.
+- **Remote Accessibility:** Ensure secure and easy access to home server services from outside the home network.
+- **Automation and Continuous Integration/Deployment (CI/CD):** Automate routine tasks, server provisioning, and service deployment for efficiency and consistency.
+- **Local DNS Management:** Manage local network traffic and service discovery via a self-hosted DNS server.
+- **Learning and Documentation:** Document the setup process, challenges, and solutions as a valuable resource for the community and personal reference.
 
-- **Server Configuration:** Step-by-step procedures for initial server setup, including operating system installation and network configuration.
+## Initial Strategy and Overview
 
-- **Core Services:** Guidelines on deploying key services such as file sharing capabilities, VPN access, and container management using Docker and Docker Swarm.
+- **Docker and Docker Swarm:** Utilize containerization to manage and isolate services, ensuring scalability and ease of deployment.
+- **Nginx as Reverse Proxy:** Route and manage incoming traffic to various services securely.
+- **Cloudflare Tunnel:** Securely expose services to the internet without opening local network ports.
+- **Local DNS via Dnsmasq:** Resolve local domain names efficiently within the home network.
+- **Ansible for Configuration Management:** Streamline and codify server and service configurations.
+- **Monitoring and Logging:** Implement solutions to monitor server health and log activities for proactive maintenance.
 
-- **Service Deployment and Management:** Instructions for deploying services using Docker compose, managing service lifecycle, and ensuring high availability.
+## Conclusion
 
-- **Networking:** Configuration of internal and external networking, including reverse proxy setup with Nginx, and implementing security measures like firewalls and port forwarding.
+The home server setup is more than just a technical project; it's an ongoing journey of learning, experimentation, and adaptation. It embodies my commitment to enhancing my technical skills, contributing to the self-hosting community, and achieving a more private, controlled, and efficient digital life.
 
-- **Monitoring and Logging:** Implementation of monitoring tools like Prometheus and Grafana to track server performance and health, and strategies for log management.
+---
 
-- **Security Practices:** Strategies for server hardening, secure handling of secrets and credentials, and recommendations for regular security audits to protect sensitive data.
-
-- **Maintenance and Troubleshooting:** Maintenance routines to keep the server updated and secure, along with a comprehensive troubleshooting section for diagnosing and resolving common issues.
-
-- **FAQs and References:** A section dedicated to frequently asked questions for quick reference and a compilation of external resources for further reading and exploration.
-
-- **Contributing to the Documentation:** An invitation to the community to contribute their knowledge and experience to improve and expand upon the documentation.
-
-This documentation is not static; it is intended to evolve with advancements in technology, community contributions, and the continuous learning from the deployment and management of home servers. It aims to be as accessible as possible, demystifying complex concepts without sacrificing the depth of information.
-
-By the end of this documentation, you should be able to confidently build and maintain a home server that caters to your specific requirements, whether for development, testing, or personal use.
+This purpose-driven journey is documented and shared for those who share a similar passion and for my own future reference. Detailed steps, configurations, and insights are available on [GitHub](https://github.com/sarthakjdev/home-server-configs) and the [project documentation site](https//docs.sarthakjdev.com).

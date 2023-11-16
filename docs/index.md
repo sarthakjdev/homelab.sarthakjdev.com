@@ -22,11 +22,11 @@ hero:
 features:
   - title: A Personal Journey Through Server Management
     icon: 🚀
-    details: Step into the shoes of a DevOps engineer navigating the complexities of setting up and managing a home server. This documentation isn't just a guide; it's a story of challenges, solutions, and learning along the way.
+    details: Step into the shoes of a DevOps engineer navigating the complexities of setting up and managing a home server. This documentation isn't just a guide, it's a story of challenges, solutions, and learning along the way.
   - title: From Problems to Solutions
     icon: 🔧
     details: Experience the real-life scenarios of server setup, from encountering unexpected hurdles to developing innovative solutions. These pages are filled with firsthand experiences, providing insights into the practical aspects of managing and troubleshooting a server.
   - title: Learning by Doing
     icon: 👨‍💻
-    details: Follow along with a hands-on approach to configuring a secure, functional, and efficient server system. This documentation isn't just about the 'how'; it's about understanding the 'why' behind each action and decision, reflecting a true DevOps mindset.
+    details: Follow along with a hands-on approach to configuring a secure, functional, and efficient server system. This documentation isn't just about the 'how', it's about understanding the 'why' behind each action and decision, reflecting a true DevOps mindset.
 ---
