@@ -1,0 +1,40 @@
+## DNS-over-HTTPS (DoH) in Modern Browsers: Understanding and Configuration
+
+### What is DNS-over-HTTPS (DoH)?
+
+DNS-over-HTTPS (DoH) is a modern web protocol adopted by many browsers, including Firefox and Chrome. It enhances user privacy and security by encrypting DNS queries, which traditionally have been sent in plaintext. This encryption prevents third parties from eavesdropping on DNS requests, offering a more secure browsing experience.
+
+### Why Do Browsers Use DoH?
+
+1. **Privacy**: Encrypting DNS requests shields them from prying eyes, such as ISPs or malicious actors, who might be monitoring network traffic.
+   
+2. **Security**: By bypassing local DNS servers, DoH can circumvent potential attacks like DNS spoofing, which can lead to phishing and malware distribution.
+
+3. **Consistency**: DoH provides uniform DNS resolution across different networks, ensuring reliable access to websites regardless of local DNS configurations or restrictions.
+
+### The Impact of DoH on Local DNS Resolution
+
+While DoH offers significant privacy and security benefits, it will create challenges in environments with local DNS servers. When a browser uses DoH, it bypasses the local DNS settings, including any custom configurations or internal domain resolutions set up within a local network. This behavior can lead to issues such as:
+
+- Inability to resolve local domain names configured on a home server or internal network.
+- Discrepancy between DNS resolutions on the browser and other applications/systems in the same network.
+
+### How to Configure or Disable DoH in Browsers
+
+To align browser DNS behavior with local network settings, you may need to adjust DoH settings in your browser. Here's how you can manage DoH:
+
+#### For Firefox:
+
+1. **Access Settings**: Click the hamburger menu (☰) and select "Options" or "Preferences."
+2. **Navigate to Network Settings**: Scroll down to the "Network Settings" section and click "Settings."
+3. **Adjust DoH Settings**: Under "Enable DNS over HTTPS," you can select your preferred DoH provider or disable it to use your system's DNS settings.
+
+#### For Chrome:
+
+1. **Open Settings**: Click the three dots (⋮) at the top-right and choose "Settings."
+2. **Access Privacy and Security**: Navigate to "Privacy and security" > "Security."
+3. **DoH Configuration**: Scroll down to "Advanced" and find the "Use secure DNS" option. You can then disable it or choose a specific provider.
+
+### Conclusion
+
+Understanding and configuring DoH in browsers is crucial for maintaining the desired DNS resolution behavior, especially in environments with specific local DNS needs. By customizing DoH settings, you can enjoy the security benefits of encrypted DNS queries while ensuring compatibility with your local network setup.

@@ -4,9 +4,40 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   lang: 'en-US',
   title: 'Home Server Setup',
-  description: 'converting a old laptop into a home server',
+  description: "Explore comprehensive documentation on setting up a robust Home Server using Docker Swarm. Learn to configure and manage Nextcloud, Nginx, and other services for a secure, scalable, and efficient home network infrastructure.",
   sitemap: {
-    hostname: 'https://docs.sarthakjdev.co'
+    hostname: 'https://homelab.sarthakjdev.co',
+  },
+  transformPageData(pageData) {
+    pageData.frontmatter.head ??= []
+    pageData.frontmatter.head.push([
+      'meta',
+      {
+        name: 'og:title',
+        content: 'Home Lab Setup Documentation'
+      }
+    ])
+    pageData.frontmatter.head.push([
+      'meta',
+      {
+        name: 'og:image',
+        content: '/assets/homelab_banner.png'
+      }
+    ])
+    pageData.frontmatter.head.push([
+      'meta',
+      {
+        name: 'og:description',
+        content: 'Explore comprehensive documentation on setting up a robust Home Server using Docker Swarm. Learn to configure and manage Nextcloud, Nginx, and other services for a secure, scalable, and efficient home network infrastructure.'
+      }
+    ])
+    pageData.frontmatter.head.push([
+      'meta',
+      {
+        name: 'og:type',
+        content: 'website'
+      }
+    ])
   },
   themeConfig: {
     sidebar: [
@@ -38,6 +69,10 @@ export default defineConfig({
           {
             text: 'Storage Rescue',
             link: '/introduction/storage'
+          },
+          {
+            text: 'Tooling',
+            link: '/introduction/tooling'
           },
 
         ]
@@ -79,10 +114,6 @@ export default defineConfig({
             link: '/services/objectives'
           },
           {
-            text: 'Tooling',
-            link: '/services/tooling'
-          },
-          {
             text: 'Web Server',
             link: '/services/web-server'
           },
@@ -90,14 +121,14 @@ export default defineConfig({
             text: "Storage Cloud",
             link: "/services/cloud-file-storage"
           },
-          {
-            text: "Monitoring Setup",
-            link: "/services/monitoring"
-          },
-          {
-            text: "Logging Setup",
-            link: "/services/logging"
-          }
+          // {
+          //   text: "Monitoring Setup",
+          //   link: "/services/monitoring"
+          // },
+          // {
+          //   text: "Logging Setup",
+          //   link: "/services/logging"
+          // }
         ]
       },
       {
@@ -174,7 +205,7 @@ export default defineConfig({
       {
         rel: 'apple-touch-icon',
         sizes: '180x180',
-        href: '/favicons/apple-icon-180x180.png'
+        href: '/assets/apple-touch-icon.png'
       }
     ],
     [
@@ -183,7 +214,7 @@ export default defineConfig({
         rel: 'icon',
         type: 'image/png',
         sizes: '32x32',
-        href: '/favicons/favicon-32x32.png'
+        href: '/assets/favicon-32x32.png'
       }
     ],
     [
@@ -192,14 +223,15 @@ export default defineConfig({
         rel: 'icon',
         type: 'image/png',
         sizes: '16x16',
-        href: '/favicons/favicon-16x16.png'
+        href: '/assets/favicon-16x16.png'
       }
     ],
-    ['link', { rel: 'manifest', href: '/favicons/manifest.json' }],
-    ['link', { rel: 'shortcut icon', href: '/favicons/favicon.ico' }],
+    ['link', { rel: 'manifest', href: '/assets/manifest.json' }],
+    ['link', { rel: 'shortcut icon', href: '/assets/favicon.ico' }],
     ['meta', { name: 'msapplication-TileColor', content: '#ffffff' }],
-    ['meta', { name: 'msapplication-config', content: '/favicons/browserconfig.xml' }],
+    ['meta', { name: 'msapplication-config', content: '/assets/browserconfig.xml' }],
     ['meta', { name: 'theme-color', content: '#ffffff' }]
-  ]
+  ],
+  appearance: 'dark',
 })
 

@@ -110,3 +110,5 @@ I utilized a temporary container to execute the `cloudflared` login and generate
 Setting up Cloudflare Tunnel for my home server was a challenging but rewarding experience. It involved configuring Docker Swarm, understanding Cloudflare's tunneling mechanism, and addressing SSL/TLS termination issues. This setup now securely exposes my home server services to the internet while maintaining control over the network traffic.
 
 This documentation reflects my personal experience and solutions in setting up Cloudflare Tunnel for my home server. The process was insightful, enhancing my understanding of network security, containerization, and Cloudflare's services.
+
+More in depth explanation of TLS [here](https://docs.sarthakjdev.com/networking/tls)

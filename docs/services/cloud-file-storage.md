@@ -1,8 +1,6 @@
 # Setting up file server using docker 
 
-
 ## Technical Overview
-
 
 ### Choosing the underlying tech:
 
