@@ -6,7 +6,7 @@ export default defineConfig({
   title: 'Home Server Setup',
   description: "Explore comprehensive documentation on setting up a robust Home Server using Docker Swarm. Learn to configure and manage Nextcloud, Nginx, and other services for a secure, scalable, and efficient home network infrastructure.",
   sitemap: {
-    hostname: 'https://homelab.sarthakjdev.co',
+    hostname: 'https://homelab.sarthakjdev.com',
   },
   transformPageData(pageData) {
     pageData.frontmatter.head ??= []
