@@ -162,7 +162,7 @@ export default defineConfig({
     socialLinks: [
       {
         icon: 'github',
-        link: 'https://sarthakjdev/'
+        link: 'https://github.com/sarthakjdev'
       },
       {
         icon: 'x',
