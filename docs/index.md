@@ -17,7 +17,7 @@ hero:
       link: https://sarthakjdev.com
     - theme: alt
       text: Github
-      link: https://github.com/sarthakjdev/home-server-setup
+      link: https://github.com/sarthakjdev/home-server-configs
 
 features:
   - title: A Personal Journey Through Server Management
